@@ -22,6 +22,7 @@ Node* c = new Node(10);
 Node* d  = new Node(250);
 Node* e = new Node(25);
 // attaching node
+cout<<a->value;
 
 (*a).next = b;
 b->next = c;
