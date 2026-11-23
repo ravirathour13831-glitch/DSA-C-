@@ -1,3 +1,4 @@
+
 #include <iostream>
 using namespace std;
 
@@ -5,63 +6,43 @@ class Node
 {
 public:
     int value;
-    Node *next;
+    Node* next;
 
     Node(int value)
     {
         this->value = value;
-    }
-
- 
-    
-
-    
-};
-
- void  printf(Node* temp){
-    while (temp != NULL)
-
-    {
-        cout<<temp->value<<"->";
-        temp = temp->next;
-
-
+        this->next = NULL;
     }
 };
- 
- void Recursion(Node* tepm){
-    if ( tepm  == NULL) return;
- 
-    Recursion(tepm->next);
-    cout<<tepm->value<<"->";
 
- };
+// Reverse Printing using Recursion
+void Recursion(Node* temp)
+{
+    if (temp == NULL)
+        return;
+
+    Recursion(temp->next);
+
+    cout << temp->value << "->";
+}
 
 int main()
 {
+    Node* head;
 
-    // Node* a ;
-    // a = new Node;
-    // a->value = 10;
-    // cout<<a->next<<a->value;
+    Node* a = new Node(10);
+    Node* b = new Node(20);
+    Node* c = new Node(30);
 
-    Node *head;
-    Node *a = new Node(10);
-    Node *b = new Node(20);
-    Node *c = new Node(30);
-
-    // attaching
     head = a;
     a->next = b;
     b->next = c;
-    c->next = NULL;
 
-    Node* temp = head;
-    printf(temp);
+    cout << "Reverse Linked List: ";
 
-    cout<<endl;
+    Recursion(head);
 
-    Recursion(temp);
+    cout << "NULL";
 
     return 0;
 }
